@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMax - Portal de Vehículos</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <!-- Menú de navegación y cabecera -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="img/logo-automax.png" alt="Logo AutoMax" id="logo-img" onerror="this.src='https://via.placeholder.com/60?text=AutoMax'">
+            <h1>AutoMax</h1>
+        </div>
+        <nav class="navbar">
+            <a href="#inicio">Inicio</a>
+            <a href="#registro">Registrar Vehículo</a>
+            <a href="#catalogo">Catálogo</a>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <!-- Sección de Formulario de Registro -->
+        <section id="registro" class="card">
+            <h2 id="form-titulo">Registro de Vehículo Nuevo</h2>
+            <form id="vehiculo-form">
+                <!-- Campo oculto para saber si estamos editando -->
+                <input type="hidden" id="modo-edicion" value="false">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="codigo">Código del Vehículo:</label>
+                        <input type="text" id="codigo" required placeholder="Ej. V001">
+                    </div>
+                    <div class="form-group">
+                        <label for="marca">Marca:</label>
+                        <input type="text" id="marca" required placeholder="Ej. Toyota">
+                    </div>
+                    <div class="form-group">
+                        <label for="modelo">Modelo:</label>
+                        <input type="text" id="modelo" required placeholder="Ej. Corolla">
+                    </div>
+                    <div class="form-group">
+                        <label for="anio">Año:</label>
+                        <input type="number" id="anio" required placeholder="Ej. 2026">
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color:</label>
+                        <input type="text" id="color" required placeholder="Ej. Rojo">
+                    </div>
+                    <div class="form-group">
+                        <label for="combustible">Tipo de Combustible:</label>
+                        <select id="combustible" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Gasolina">Gasolina</option>
+                            <option value="Gasoil / Diesel">Gasoil / Diesel</option>
+                            <option value="Híbrido">Híbrido</option>
+                            <option value="Eléctrico">Eléctrico</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio ($):</label>
+                        <input type="number" step="0.01" id="precio" required placeholder="Ej. 25000">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad Disponible:</label>
+                        <input type="number" id="cantidad" required placeholder="Ej. 5">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" rows="3" required placeholder="Detalles adicionales del vehículo..."></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" id="btn-guardar" class="btn btn-primary">Guardar Vehículo</button>
+                    <button type="button" id="btn-cancelar" class="btn btn-secondary" style="display: none;">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Área de visualización / Tabla de consulta -->
+        <section id="catalogo" class="card">
+            <h2>Catálogo de Vehículos Registrados</h2>
+            <div class="table-responsive">
+                <table id="vehiculos-table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Año</th>
+                            <th>Color</th>
+                            <th>Combustible</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehiculos-tbody">
+                        <!-- Los registros se cargan dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 AutoMax - Sistema de Gestión de Vehículos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
